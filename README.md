@@ -11,7 +11,7 @@ Edit directories, usernames, workspace names, etc. in the following files, then 
 
     ./osm-utils/bin/osm_setup_centos.sh
     
-Edit osm-utils/bin/osm_setup.sh to your particular taste, specifically updating these 7 lines at the top of the file:
+Edit `./osm-utils/bin/osm_setup.sh` to your particular taste, specifically updating these 7 lines at the top of the file:
 
     TABLESPACE_DIR=/home/postgres/tablespace_1
     TABLESPACE_NAME=tablespace_1
