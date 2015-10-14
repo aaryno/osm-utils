@@ -48,14 +48,14 @@ cp $PG_CONF $tmpfile1
 declare -A pgconf
 pgconf=(["shared_buffers"]="4GB"
 ["work_mem"]="100MB"
-["maintenance_work_mem"]="4096 MB"
+["maintenance_work_mem"]="4096MB"
 ["fsync"]="off"
 ["autovacuum"]="off"
 ["checkpoint_segments"]="60"
 ["random_page_cost"]="1.1"
 ["effective_io_concurrency"]="2"
 ["temp_tablespaces"]="$TABLESPACE_NAME"
-["listen_addresses"]="*")
+["listen_addresses"]="'*'")
 
 echo "Updating settings in $PG_CONF"
 # Update each of the settings in the associative array 'pgconf'
