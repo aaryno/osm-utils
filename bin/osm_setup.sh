@@ -7,12 +7,6 @@ TABLESPACE_NAME=tablespace_1
 DATABASE_USER=osm
 DATABASE_NAME=osm
 
-PBF_DIR=/home/pbf/incoming
-PBF_URL=http://download.geofabrik.de/north-america/us/arizona-latest.osm.pbf
-PBF_NAME=arizona-latest.osm.pbf
-
-OSM_UTIL_BIN_DIR=$(dirname $0)
-
 #PG_DATADIR=/etc/postgresql/9.3/main # Ubuntu
 PG_DATADIR=/var/lib/pgsql/9.3/data # CentOS
 
@@ -90,11 +84,5 @@ cd osm2pgsql
 make
 make install
 
-# Download some data
-echo “Downloading some data“
-mkdir -p $PBF_DIR
-cd $pbf_dir
-wget $PBF_URL
-osm2pgsql -c -C 4000 --slim -S $OSM_UTIL_BIN_DIR/mapzen_osm2pgsql.style -k -d osm -U osm -H localhost -P 5432 $PBF_NAME 
 
 
