@@ -1,5 +1,7 @@
 #!/bin/bash
 
+INSTALL_DIR=/root
+
 # Install some deps
 echo "Installing dependencies"
 yum install -y gcc-c++ automake libtool pkgconfig boost-devel \
@@ -16,6 +18,7 @@ yum install -y postgresql93-devel postgresql93-contrib postgresql93-server
 echo "Updating path"
 #Update path for pgsql-9.3/bin:
 echo 'export PATH=$PATH:/usr/pgsql-9.3/bin' >> /etc/profile
+export PATH=$PATH:/usr/pgsql-9.3/bin
 . /etc/profile
 
 echo "Linking pgsql libs"
@@ -33,37 +36,36 @@ echo "Adding port 5432 to firewall allow list"
 firewall-cmd --permanent --add-port=5432/tcp
 # change runtime configuration
 firewall-cmd --add-port=5432/tcp
-install_dir=/root
 
 # GEOS Install GEOS
 echo "Installing GEOS"
-cd $install_dir
+cd INSTALL_DIR
 wget http://download.osgeo.org/geos/geos-3.5.0.tar.bz2
 bunzip2 geos-3.5.0.tar.bz2 
 tar xvf geos-3.5.0.tar
 cd geos-3.5.0
-./configure --libdir=/usr/lib64 --prefix=/usr/local/geos
+./configure --libdir=/usr/lib64
 make
 make install
 
 # Install PROJ.4
 echo "Installing Proj.4"
-cd $install_dir
+cd INSTALL_DIR
 git clone https://github.com/OSGeo/proj.4.git
 cd proj.4
 ./autogen.sh
-./configure -libdir=/usr/lib64 --prefix=/usr/local/proj.4
+./configure -libdir=/usr/lib64
 make
 make install
 
 # Install gdal
 echo "Installing GDAL"
-cd $install_dir
+cd INSTALL_DIR
 wget http://download.osgeo.org/gdal/1.11.3/gdal-1.11.3.tar.gz
 tar xvzf gdal-1.11.3.tar.gz
 cd gdal-1.11.3
 ./autogen.sh
-./configure --libdir=/usr/lib64 --prefix=/usr/local/gdal
+./configure --libdir=/usr/lib64
 make
 make install
 
@@ -75,7 +77,7 @@ echo 'export PATH=$PATH:$GDAL_HOME/bin' >> /etc/profile
 
 # Install postgis
 echo "Installing PostGIS"
-cd $install_dir
+cd INSTALL_DIR
 wget http://download.osgeo.org/postgis/source/postgis-2.2.0.tar.gz
 tar zvxf postgis-2.2.0.tar.gz
 cd postgis-2.2.0
