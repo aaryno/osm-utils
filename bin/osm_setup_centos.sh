@@ -39,7 +39,7 @@ firewall-cmd --add-port=5432/tcp
 
 # GEOS Install GEOS
 echo "Installing GEOS"
-cd INSTALL_DIR
+cd $INSTALL_DIR
 wget http://download.osgeo.org/geos/geos-3.5.0.tar.bz2
 bunzip2 geos-3.5.0.tar.bz2 
 tar xvf geos-3.5.0.tar
@@ -50,7 +50,7 @@ make install
 
 # Install PROJ.4
 echo "Installing Proj.4"
-cd INSTALL_DIR
+cd $INSTALL_DIR
 git clone https://github.com/OSGeo/proj.4.git
 cd proj.4
 ./autogen.sh
@@ -60,7 +60,7 @@ make install
 
 # Install gdal
 echo "Installing GDAL"
-cd INSTALL_DIR
+cd $INSTALL_DIR
 wget http://download.osgeo.org/gdal/1.11.3/gdal-1.11.3.tar.gz
 tar xvzf gdal-1.11.3.tar.gz
 cd gdal-1.11.3
@@ -77,7 +77,7 @@ echo 'export PATH=$PATH:$GDAL_HOME/bin' >> /etc/profile
 
 # Install postgis
 echo "Installing PostGIS"
-cd INSTALL_DIR
+cd $INSTALL_DIR
 wget http://download.osgeo.org/postgis/source/postgis-2.2.0.tar.gz
 tar zvxf postgis-2.2.0.tar.gz
 cd postgis-2.2.0
