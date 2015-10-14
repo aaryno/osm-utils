@@ -1,7 +1,7 @@
 # osm-utils
 Install git. E.g., for CentOS:
 
-    yum install git
+    yum -y install git
     
 Then:
 
