@@ -22,8 +22,9 @@ Edit `./osm-utils/bin/osm_setup.sh` to your particular taste, specifically updat
     DATABASE_USER=osm
     DATABASE_NAME=osm
 
-Then
+This installs a few things and updates the /etc/profile. Since it runs in a shell, ENV variables do not propagate back to your shell so:
 
+    . /etc/profile
     ./osm-utils/bin/osm_setup.sh
     
 When that's finished compiling and installing, you're ready to download data and import it. What follows below is a small file (just the state of Arizona). For larger files you may have thought to download this file earlier. Assuming you haven't, download it now:
