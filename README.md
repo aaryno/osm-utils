@@ -1,4 +1,9 @@
 # osm-utils
+Install git. E.g., for CentOS:
+
+    yum install git
+    
+Then:
 
     git clone https://github.com/aaryno/osm-utils.git
 
