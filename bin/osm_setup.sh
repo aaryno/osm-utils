@@ -2,7 +2,7 @@
 
 # Configurable settings
 
-TABLESPACE_DIR=/home/postgres/tablespace_1
+TABLESPACE_DIR=/data/tablespace_1
 TABLESPACE_NAME=tablespace_1
 DATABASE_USER=osm
 DATABASE_NAME=osm
