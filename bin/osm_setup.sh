@@ -2,7 +2,8 @@
 
 # Configurable settings
 
-TABLESPACE_DIR=/data/tablespace_1
+DATA_DIR=/data
+TABLESPACE_DIR=$DATA_DIR/tablespace_1
 TABLESPACE_NAME=tablespace_1
 DATABASE_USER=osm
 DATABASE_NAME=osm
